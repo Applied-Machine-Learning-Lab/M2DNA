@@ -1,6 +1,7 @@
 # M2DNA：Multi-Modal Dual-Stream Representation Learning with Joint Relational Modeling for DNA Clustering
 
 This repository contains the implementation of **M2DNA: Multi-Modal Dual-Stream Representation Learning with Joint Relational Modeling for DNA Clustering**.
+<img width="1354" height="570" alt="M2DNA" src="https://github.com/user-attachments/assets/80fceb83-aabe-4442-9329-a697adc26147" />
 
 M2DNA jointly models two representation forms of the same DNA sequence: a visual Frequency Chaos Game Representation (FCGR) and a sequence representation produced by a pretrained nucleotide language model. The model is trained with a Twin Contrastive Loss at both instance and cluster levels. Following an asymmetric optimization strategy, the visual encoder is pretrained offline and then frozen, while the textual encoder is adapted with LoRA. During joint training, the two streams are integrated by the proposed Adaptive Fusion Module, and **Probabilistic Module Dropout (PMD)** randomly suppresses the visual stream to alleviate representation laziness.
 

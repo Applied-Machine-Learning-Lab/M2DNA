@@ -72,9 +72,7 @@ ACGTACGTACGT...
 
 ## 4. Offline Visual Representation Learning
 
-According to the M2DNA methodology, the visual encoder is first trained offline with the CGRclust implementation. Clone the [CGRclust repository](https://github.com/fatemehalipour/CGRclust) and place the target FASTA file in its `data/` directory. This stage learns global topological features from weakly and strongly augmented FCGR representations using Twin Contrastive Learning.
-
-The FCGR input is generated from non-overlapping k-mers. For the default setting, use `k=6` and heterogeneous mutation augmentations with weak and strong mutation rates of `1e-4` and `1e-2`, respectively. 
+According to the M2DNA methodology, the visual encoder is first trained offline with the CGRclust implementation. Clone the [CGRclust repository](https://github.com/fatemehalipour/CGRclust) and place the target FASTA file in its `data/` directory. This stage learns global topological features from weakly and strongly augmented FCGR representations using Twin Contrastive Learning. 
 
 
 

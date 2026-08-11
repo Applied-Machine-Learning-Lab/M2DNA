@@ -1,4 +1,4 @@
-# M2DNA
+# M2DNA：Multi-Modal Dual-Stream Representation Learning with Joint Relational Modeling for DNA Clustering
 
 This repository contains the implementation of **M2DNA: Multi-Modal Dual-Stream Representation Learning with Joint Relational Modeling for DNA Clustering**.
 

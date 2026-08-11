@@ -5,6 +5,11 @@ This repository contains the implementation of **M2DNA: Multi-Modal Dual-Stream 
 
 M2DNA jointly models two representation forms of the same DNA sequence: a visual Frequency Chaos Game Representation (FCGR) and a sequence representation produced by a pretrained nucleotide language model. The model is trained with a Twin Contrastive Loss at both instance and cluster levels. Following an asymmetric optimization strategy, the visual encoder is pretrained offline and then frozen, while the textual encoder is adapted with LoRA. During joint training, the two streams are integrated by the proposed Adaptive Fusion Module, and **Probabilistic Module Dropout (PMD)** randomly suppresses the visual stream to alleviate representation laziness.
 
+The M2DNA optimization procedure consists of two stages:
+
+1. **Offline visual representation learning.** The CNN encoder is trained with CGRclust on weak and strong FCGR views and then frozen.
+2. **Asymmetric dual-stream fine-tuning.** The frozen visual stream extracts topological features, while the nucleotide transformer processes non-overlapping k-mer tokens. Mean pooling produces the textual representation, which is projected to the visual feature dimension. The Adaptive Fusion Module concatenates the projected textual feature with the PMD-processed visual feature, estimates an element-wise sigmoid gate, and computes their weighted sum.
+
 ## 1. Repository Structure
 
 ```text
@@ -131,14 +136,8 @@ python src/cluster.py \
     --weight 0.7
 ```
 
-The M2DNA optimization procedure consists of two stages:
 
-1. **Offline visual representation learning.** The CNN encoder is trained with CGRclust on weak and strong FCGR views and then frozen.
-2. **Asymmetric dual-stream fine-tuning.** The frozen visual stream extracts topological features, while the nucleotide transformer processes non-overlapping k-mer tokens. Mean pooling produces the textual representation, which is projected to the visual feature dimension. The Adaptive Fusion Module concatenates the projected textual feature with the PMD-processed visual feature, estimates an element-wise sigmoid gate, and computes their weighted sum.
 
-LoRA adapters are inserted into the query, key, and value projections of the nucleotide transformer.
-
-PMD is applied to the entire visual branch rather than individual neurons. With probability `p=0.3`, the visual feature is masked during training, forcing the textual stream to learn discriminative local sequence information independently. PMD is disabled during inference, where the full visual representation is restored.
 
 ## 6. Main Arguments
 

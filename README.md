@@ -92,7 +92,6 @@ python scripts/pretrain_visual_cgrclust.py \
     --weight 0.7
 ```
 
-The default output is `checkpoints/<dataset-stem>/`. The wrapper writes `best_visual_model_0.pth` through `best_visual_model_4.pth`, copies the best run to `best_visual_model.pth`, and writes `selection_summary.txt`. Repeat this process for every dataset because M2DNA uses a dataset-specific offline visual encoder.
 
 Organize the selected checkpoints by dataset, for example:
 

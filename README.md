@@ -68,17 +68,15 @@ Each FASTA header must contain the sequence identifier followed by its class lab
 ACGTACGTACGT...
 ```
 
-The loader converts `U` to `T` and replaces non-canonical nucleotides with `N`. During FCGR construction, `N`-containing k-mers are ignored. Class labels are read from the second field of each FASTA description, so the header format should be preserved.
+
 
 ## 4. Offline Visual Representation Learning
 
 According to the M2DNA methodology, the visual encoder is first trained offline with the CGRclust implementation. Clone the [CGRclust repository](https://github.com/fatemehalipour/CGRclust) and place the target FASTA file in its `data/` directory. This stage learns global topological features from weakly and strongly augmented FCGR representations using Twin Contrastive Learning.
 
-The FCGR input is generated from non-overlapping k-mers. For the default setting, use `k=6` and heterogeneous mutation augmentations with weak and strong mutation rates of `1e-4` and `1e-2`, respectively. The offline objective is:
+The FCGR input is generated from non-overlapping k-mers. For the default setting, use `k=6` and heterogeneous mutation augmentations with weak and strong mutation rates of `1e-4` and `1e-2`, respectively. 
 
-```text
-L_offline = (1 - w) * L_instance + w * L_cluster
-```
+
 
 From the M2DNA repository root, run the provided wrapper. It reuses the official CGRclust implementation, trains five independent visual models, saves the best epoch of each run, and selects the best run according to clustering accuracy:
 

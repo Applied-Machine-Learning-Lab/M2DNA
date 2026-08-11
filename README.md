@@ -107,7 +107,7 @@ M2DNA/
         └── best_visual_model.pth
 ```
 
-The selected checkpoint contains parameters compatible with `backbone.*`, `instance_projector.*`, and `cluster_projector.*` in M2DNA. The wrapper does not modify the downloaded CGRclust repository and does not depend on checkpoint-saving code being present in that repository.
+
 
 ## 5. Training the M2DNA Dual-Stream Architecture
 

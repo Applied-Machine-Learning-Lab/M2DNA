@@ -110,7 +110,7 @@ M2DNA/
 
 ## 5. Training the M2DNA Dual-Stream Architecture
 
-After obtaining the offline visual checkpoint, enable the nucleotide language-model stream with `--use_llm`. The visual checkpoint must be loaded first and the visual encoder must remain frozen during M2DNA training. This preserves the global topological prior learned by CGRclust and allows the textual branch to learn complementary local sequential information.
+After obtaining the offline visual checkpoint, enable the nucleotide language-model stream with `--use_llm`. The visual checkpoint must be loaded first and the visual encoder must remain frozen during M2DNA training. 
 
 ```bash
 python src/cluster.py \
